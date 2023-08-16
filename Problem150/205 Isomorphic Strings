@@ -1,1 +1,14 @@
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        return self.freq_map(s) == self.freq_map(t)
+    
+    def freq_map(self, s: str):
+        freq = {}
+        freq_list = []
+        for i in range(len(s)):
+            if s[i] not in freq:
+                freq[s[i]] = i
+            freq_list.append(freq[s[i]])
+
+        return freq_list
 
