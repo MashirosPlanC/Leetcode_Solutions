@@ -1,8 +1,8 @@
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
-        return self.freq_map(s) == self.freq_map(t)
+        return self.freq_list(s) == self.freq_list(t)
     
-    def freq_map(self, s: str):
+    def freq_list(self, s: str):
         freq = {}
         freq_list = []
         for i in range(len(s)):
