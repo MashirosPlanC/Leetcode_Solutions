@@ -1,0 +1,10 @@
+import collections
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        letters = collections.Counter(s)
+        for char in t:
+            if letters[char] <= 0:
+                return False
+            else:
+                letters[char] -= 1
+        return all(v == 0 for v in letters.values())
