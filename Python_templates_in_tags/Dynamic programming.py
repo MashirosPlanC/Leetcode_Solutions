@@ -2,30 +2,30 @@
 
 # Bottom-up or Top-down
 
-def dynamic_programming_template_with_example(word1, word2):
-    m, n = len(word1), len(word2)
+# Template 1: Fibonacci sequence (1 dimensions DP)
+''' 
+A fibonacci sequence is expressed as 0, 1, 1, 2, 3, 5, 8, 13, 21, ...
+where each number is the sum of the two preceding numbers  
+Return Nth Fibonacci number
 
-    # states definition: cur_min_edit_dist
-    # states compressed to two states: old and new
-    dp = [[0] * (m + 1) for _ in range(2)]
+Example:
+fib(19) = 4181
+'''
+def fib(n: int):
+    #initiate
+    dp = [0] * (n + 1)
+    dp[0] = 0
+    dp[1] = 1
 
-    # initialize the initial edit distance, add one more state for init state
-    for i in range(0, m + 1):
-        dp[0][i] = i
+    #iterate
+    for i in range(2, n + 1):
+        dp[i] = dp[i - 1] + dp[i - 2]
+    
+    return dp[n] if n >= 2 else dp[1] if n == 1 else dp[0]
 
-    cur = 1
-    for i in range(n):
-        # initialize the init state
-        dp[cur][0] = i + 1
-        for j in range(m):
-            # state transition equation
-            # if char matched, this is the min dist.
-            if word1[j] == word2[i]:
-                dp[cur][j + 1] = dp[cur ^ 1][j]
-            # otherwise, 1 + minimum of edit/remove/add operations
-            else:
-                dp[cur][j + 1] = 1 + min(dp[cur ^ 1][j], dp[cur ^ 1][j + 1], dp[cur][j])
-        # switch between two states
-        cur ^= 1
-    # return the last state as result
-    return dp[cur ^ 1][-1]
+# Template 2: 2 dimensions DP
+'''
+Given a triangle array, return the minimum path sum from top to bottom.
+For each step, you may move to an adjacent number of the row below. 
+More formally, if you are on index i on the current row, you may move to either index i or index i + 1 on the next row.
+'''
