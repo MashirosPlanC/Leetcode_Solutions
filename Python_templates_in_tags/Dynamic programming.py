@@ -25,6 +25,7 @@ def fib(n: int):
 
 # Template 2: 2 dimensions DP
 '''
+120. Triangle
 Given a triangle array, return the minimum path sum from top to bottom.
 If you are on index i on the current row, you may move to either index i or index i + 1 on the next row.
 
@@ -38,3 +39,20 @@ Explanation: The triangle looks like:
 4 1 8 3
 The minimum path sum from top to bottom is 2 + 3 + 5 + 1 = 11 (underlined above).
 '''
+class Solution:
+    def minimumTotal(self, triangle: List[List[int]]) -> int:
+        n = len(triangle)
+
+        if n == 1:
+            return triangle[0][0]
+
+        dp = [[0] * x for x in range(1, n + 1)]
+
+        for j in range(n):
+            dp[n - 1][j] = triangle[n - 1][j]
+
+        for i in range(n - 2, -1, -1):
+            for j in range(i + 1):
+                dp[i][j] = triangle[i][j] + min(dp[i + 1][j], dp[i + 1][j + 1])
+        
+        return dp[0][0]
