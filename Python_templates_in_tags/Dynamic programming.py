@@ -1,3 +1,13 @@
+#Typically, dynamic programming problems can be solved with three main components. 
+
+#First, we need some function or array that represents the answer to the problem from a given state. For many solutions on LeetCode, you will see this function/array named "dp". For this problem, let's say that we have an array dp. As just stated, this array needs to represent the answer to the problem for a given state, so let's say that dp[i] represents the length of the longest increasing subsequence that ends with the ithi^{th}i 
+th element. 
+
+#Second, we need a way to transition between states, such as dp[5] and dp[7]. This is called a recurrence relation and can sometimes be tricky to figure out. 
+
+#The third component is the simplest: we need a base case. 
+
+
 # Initiate and Iterate
 
 # Bottom-up or Top-down
