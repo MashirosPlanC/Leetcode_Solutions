@@ -1,4 +1,29 @@
 When dealing with leetcode questions, experienced coder have summarized practical templates, which can be used easily for beginners/preparing for interviews.
+
 One of the most helpful youtuber to me 古城算法: https://www.youtube.com/@user-my5in2fq5c/about
+
 Templates are mostly following leetcode tags:
+1. bianry search
+2. pointer
+3. sliding window
+4. bfs + dfs
+5. backtracking
+6. sort merge sort/quick sort/bucket sort
+7. monotonic stack
+8. monotonic queue
+9. 扫描线(swipe line)
+10. divide and conquer
+11. Bit manipulation
+12. prefix sum
+13. Trie
+14. heap
+15. union find
+16. list 翻转+合并+找环+删除+结构转换
+17. comparator
+18. LRU
+19. tree 遍历+结构转换+LCA+BST+Iterator 
+20. 图 bfs, dfs, topological, dijikstra, union find, mst
+21. dp 1d, 2d, backpack1,2, dfs+memo, LIS, LCS, LPS, range DP (覆盖坐标类，背包类，区间类，字符串单双序列) 9
+
+
 
