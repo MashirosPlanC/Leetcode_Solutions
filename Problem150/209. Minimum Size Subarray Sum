@@ -1,6 +1,9 @@
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
-         #sliding window
+        #sliding window
+        #Idea: stretch right border by one, then use while loop to adjust left border and get answer
+
+
         left = 0
         total = 0
         res = len(nums) + 1
