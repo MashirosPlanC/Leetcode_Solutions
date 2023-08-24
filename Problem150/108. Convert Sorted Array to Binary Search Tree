@@ -1,1 +1,20 @@
-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def sortedArrayToBST(self, nums: List[int]) -> Optional[TreeNode]:
+        #1. Any node should have smaller elements as left children and vice versa for right children...
+        #2. The BST should be Height Balanced...
+        # Base condition
+        if len(nums) == 0:
+            return None
+        # set the middle node
+        mid = len(nums)//2
+        root = TreeNode(nums[mid])
+        # recursion
+        root.left = self.sortedArrayToBST(nums[:mid])
+        root.right = self.sortedArrayToBST(nums[mid+1:])
+        return root        
