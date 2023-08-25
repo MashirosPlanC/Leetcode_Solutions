@@ -1,0 +1,18 @@
+class Solution:
+    def letterCombinations(self, digits: str) -> List[str]:
+        #dfs\
+        if not digits: return []
+        m = {'2': 'abc', '3': 'def', '4': 'ghi', '5': 'jkl', '6': 'mno', '7': 'pqrs', '8': 'tuvw', '9': 'xyz'}
+ 
+        res = []
+        def dfs(index, path):
+            if index == len(digits):
+                res.append(''.join(path))
+                return
+            for letter in m[digits[index]]:
+                dfs(index + 1, path + [letter])
+       
+
+        dfs(0, [])
+        return res
+        
