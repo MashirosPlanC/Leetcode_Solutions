@@ -1,0 +1,14 @@
+class Solution:
+    def combine(self, n: int, k: int) -> List[List[int]]:
+        res = []
+        self.dfs(n, k, 0, [], res)
+        return res
+
+    def dfs(self, n, k, start, path, res):
+        if len(path) == k:
+            res.append(path)
+            return 
+
+        for i in range(start, n):
+            self.dfs(n, k, i + 1, path + [i + 1], res)
+        
