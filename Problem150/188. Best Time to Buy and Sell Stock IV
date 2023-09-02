@@ -1,1 +1,35 @@
+#https://www.geeksforgeeks.org/maximum-profit-by-buying-and-selling-a-share-at-most-twice/#practice
+class Solution:
+    def maxProfit(self, k: int, prices: List[int]) -> int:
+        #find all the valleys and peaks
+        #then choose k biggest
+        
+        n = len(prices)
+        
+        if k >= n // 2:
+            return self.t(prices)
+        
+        dp =[[[-1 for i in range(k + 1)] for j in range(2)] for _ in range(n)]
+        return self.f(0, 0 , k, prices, n, dp)
 
+    def t(self, prices):
+        maxp = 0
+        for i in range(1, len(prices)):
+            if prices[i] > prices[i - 1]:
+                maxp += prices[i] - prices[i - 1]
+        return maxp
+
+
+    def f(self, idx, buying, cap, prices, n, dp):    
+        if idx == n or cap == 0:
+            return 0
+        if dp[idx][buying][cap] != -1:
+            return dp[idx][buying][cap]
+        
+        profit = 0
+        if buying == 0:
+            dp[idx][buying][cap] = profit = max(-prices[idx] + self.f(idx + 1, 1, cap, prices, n, dp), self.f(idx + 1, 0, cap, prices, n, dp))
+        else:
+            dp[idx][buying][cap] = profit = max(prices[idx] + self.f(idx + 1, 0, cap - 1, prices, n, dp), self.f(idx + 1, 1, cap, prices, n, dp))
+
+        return profit    
